@@ -1,0 +1,32 @@
+---
+buildpack: nodejs_buildpack
+command: node app.js
+
+applications:
+- name: backup-job-dev
+  memory: 64M
+  instances: 1
+  env:
+    NODE_ENV: Development
+    CF_HOST_URL: https://api.lyra-836.appcloud.swisscom.com
+    CF_LOGIN_URL: https://login.lyra-836.appcloud.swisscom.com/oauth/token
+    BACKUP_COUNT: 30
+    CRON_EXPRESSION: 0 1 * * *
+    USERNAME: <your-cf-username>
+    PASSWORD: <your-cf-password>
+    MONGODB_UID: <mongo-service-id>
+    MARIADB_UID: <maria-service-id>
+
+- name: backup-job-prod
+  memory: 64M
+  instances: 1
+  env:
+    NODE_ENV: Production
+    CF_HOST_URL: https://api.lyra-836.appcloud.swisscom.com
+    CF_LOGIN_URL: https://login.lyra-836.appcloud.swisscom.com/oauth/token
+    BACKUP_COUNT: 30
+    CRON_EXPRESSION: 0 1 * * *
+    USERNAME: <your-cf-username>
+    PASSWORD: <your-cf-password>
+    MONGODB_UID: <mongo-service-id>
+    MARIADB_UID: <maria-service-id>

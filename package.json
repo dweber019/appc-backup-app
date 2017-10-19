@@ -1,0 +1,15 @@
+{
+  "name": "cf-backup-app",
+  "version": "1.0.3",
+  "description": "This app is running on the Swisscom App Cloud and uses node-cron to create and delete backups for databases",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./app.js"
+  },
+  "author": "David Weber",
+  "dependencies": {
+    "node-cron": "1.1.2",
+    "request": "2.74.0"
+  }
+}
